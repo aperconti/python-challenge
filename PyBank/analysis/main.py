@@ -43,25 +43,22 @@ with open(csvpath, newline='') as data_file:
             total_differences += difference
         previous_value = current_value
         num_rows += 1
-
+    # calculating average difference and rounding to the hundredth place
     average_of_difference = round(total_differences / (num_rows - 1), 2)
+    # creating variable for output print
+    output = (
+        'Financial Analysis\n'
+        '----------------------------\n'
+        f'Months: {num_rows}\n'
+        f'Total: ${total}\n'
+        f'Average Change: ${average_of_difference}\n'
+        f'Greatest Increase in Profits: {max_increase_month} (${max_increase}\n'
+        f'Greatest Decrease in Profits: {max_decrease_month} (${max_decrease}\n'
+    )
+    # printing output to terminal
+    print(output)
 
-    print('Financial Analysis')
-    print('----------------------------')
-    print(f'Months: {num_rows}')
-    print(f'Total: ${total}')
-    print(f'Average Change: ${average_of_difference}')
-    print(f'Greatest Increase in Profits: {max_increase_month} (${max_increase})')
-    print(f'Greatest Decrease in Profits: {max_decrease_month} (${max_decrease})')
-
-    file = open('PyBank.txt','w') 
- 
-    file.write('Financial Analysis') 
-    file.write('----------------------------') 
-    file.write(f'Months: {num_rows}') 
-    file.write(f'Total: ${total}') 
-    file.write(f'Average Change: ${average_of_difference}') 
-    file.write(f'Greatest Increase in Profits: {max_increase_month} (${max_increase})')
-    file.write(f'Greatest Decrease in Profits: {max_decrease_month} (${max_decrease})')
-
-    file.close() 
+    # writing output to txt file
+    file = open('PyBank.txt', 'w')
+    file.write(output)
+    file.close()
