@@ -30,10 +30,10 @@ with open(csvpath, 'r') as csvfile:
         # counting number of votes
         num_votes = num_votes + 1
     # printing output to terminal
-    print('Election Results\n')
-    print('--------------------------\n')
-    print(f'Total Votes:{num_votes}\n')
-    print('--------------------------\n')
+    print('Election Results')
+    print('--------------------------')
+    print(f'Total Votes:{num_votes}')
+    print('--------------------------')
 
     # writing output to txt file
     file = open('Pypoll.txt', 'w')
@@ -45,26 +45,26 @@ with open(csvpath, 'r') as csvfile:
     # percentage of votes
     for key, value in candidates.items():
         # calulating percent of votes each candidate won
-        percent_votes=round((value[0]/num_votes)*100, 1)
+        percent_votes = round((value[0]/num_votes)*100, 1)
         candidates[key].append(percent_votes)
 
     for key, value in candidates.items():
 
-
         # Get winning candidate:
-        winner=max(candidates.values())
-        results=[key for key, value in candidates.items() if value == winner]
+        winner = max(candidates.values())
+        results = [key for key, value in candidates.items() if value == winner]
         # printing output to terminal
-        print(f'{key} {value[1]} % ({value[0]})\n')
-    #printing to txt file
-    file.write('-------------------------')
-    file.write(f'Winner: {results}')
-    file.write('-------------------------')
+        print(f'{key} {value[1]} % ({value[0]})')
+    # printing to txt file
+    file.write(f'{key} {value[1]} % ({value[0]})\n')
+    file.write('-------------------------\n')
+    file.write(f'Winner: {results}\n')
+    file.write('-------------------------\n')
 
-#printing output to terminal
+# printing output to terminal
 print('-------------------------')
 print(f'Winner: {results}')
 print('-------------------------')
 
-#closing txt file
+# closing txt file
 file.close()
