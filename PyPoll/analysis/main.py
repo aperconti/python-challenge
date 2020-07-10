@@ -19,7 +19,7 @@ with open(csvpath, 'r') as csvfile:
     num_votes = 0
     winner = 0
     highest_num = 0
-
+    #for loop to iterate through data
     for row in csvreader:
         # uniqify with the use of a list, but checking if the string is "in" it or not.
         name = row[2]
@@ -53,6 +53,7 @@ with open(csvpath, 'r') as csvfile:
         # Get winning candidate:
         winner = max(candidates.values())
         results = [key for key, value in candidates.items() if value == winner]
+        
         # printing output to terminal
         print(f'{key} {value[1]} % ({value[0]})')
         # printing to txt file
