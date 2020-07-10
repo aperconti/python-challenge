@@ -39,7 +39,7 @@ with open(csvpath, 'r') as csvfile:
     file = open('Pypoll.txt', 'w')
     file.write('Election Results\n')
     file.write('--------------------------\n')
-    file.write('Total Votes:{num_votes}\n')
+    file.write(f'Total Votes:{num_votes}\n')
     file.write('--------------------------\n')
 
     # percentage of votes
@@ -55,15 +55,16 @@ with open(csvpath, 'r') as csvfile:
         results = [key for key, value in candidates.items() if value == winner]
         # printing output to terminal
         print(f'{key} {value[1]} % ({value[0]})')
-    # printing to txt file
-    file.write(f'{key} {value[1]} % ({value[0]})\n')
-    file.write('-------------------------\n')
-    file.write(f'Winner: {results}\n')
-    file.write('-------------------------\n')
+        # printing to txt file
+        file.write(f'{key} {value[1]} % ({value[0]})\n')
+
+file.write('-------------------------\n')
+file.write(f'Winner: {results[0]}\n')
+file.write('-------------------------\n')
 
 # printing output to terminal
 print('-------------------------')
-print(f'Winner: {results}')
+print(f'Winner: {results[0]}')
 print('-------------------------')
 
 # closing txt file
